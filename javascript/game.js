@@ -9,7 +9,7 @@ var alphabet =["a","b", "c", "d", "e","f", "g", "h","i","j", "k", "l","m","n","o
 //variables scoreboard 
 var win=0;
 var losses=0;
-var guesses= 10;
+var guesses= 11;
 var computerGuess = "";
 
 
