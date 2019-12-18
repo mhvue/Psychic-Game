@@ -1,0 +1,22 @@
+
+body{
+    background-image: url('../../images/embossed-diamond.png');
+}
+
+h1 {
+    text-decoration: underline;
+    text-align: center;
+}
+.container {
+    margin: 0 auto;
+}
+
+p {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+img {
+    margin: 0 auto;
+    
+}
