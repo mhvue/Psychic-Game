@@ -4,82 +4,80 @@ var alphabet =["a","b", "c", "d", "e","f", "g", "h","i","j", "k", "l","m","n","o
                         "r", "s","t","u", "v", "w", "x", "y", "z"];
 
  //this the array in which user's guess of letters will go into
- var userGuess= []
+ var userGuess= [];
 
 //variables scoreboard 
-var win=0
-var losses=0
-var guesses= 10
+var win=0;
+var losses=0;
+var guesses= 10;
+var computerGuess = "";
 
 
- //computer randomly chooses a letter 
- var computerGuess = alphabet[Math.floor(Math.random() * alphabet.length)];
- console.log(computerGuess);
+ //computer randomly chooses a letter  //set up a function to reset random letter picked 
 
+ var generateGuess = function() {
+        computerGuess= alphabet[Math.floor(Math.random() * alphabet.length)];
+        console.log(computerGuess);
+
+ }
+
+
+ 
+//to start a new game aka reset  
+var newGame= function () {
+        guesses =10;
+        userGuess = [];
+        generateGuess();
+
+}
+
+
+
+
+//calling  computer guess
+generateGuess();
 
 //user needs to type a letter to guess if that's the letter computer chooses 
-
 document.onkeydown= function(event) {
-    var letterGuess= String.fromCharCode(event.keyCode).toLowerCase(); //obtained String.fromCharcode on code.io/alibar/pen/MvPgbx
-    gameStarts();
+    //var letterGuess= String.fromCharCode(event.keyCode).toLowerCase(); //obtained String.fromCharcode on code.io/alibar/pen/MvPgbx
+    var letterGuess = event.key;
     console.log(letterGuess);
 
-
+    userGuess.push(letterGuess);
 
 //if user guesses correct letter then user wins go up by 1
 //wins+
         if (letterGuess === computerGuess) {
         win++;
-        userGuess=[];
-        document.getElementById("wins-content").innerHTML = "Wins:" + win;
         alert("You Win!");
-        resetGame();
+        newGame();
         }
 
+      
+//repeated letters scenarios
+       else if (letterGuess !== computerGuess && guesses < 1 ) {
+        losses++;
+        alert("too many tries..game over")
+        newGame();
+       //this is for letters to be listed 
+        }
 
 //lose a guess if guessed incorrectly 
         else {
         guesses--;
-        userGuess=[];
-        document.getElementById("guessLeft-content").innerHTML= "Guesses Left: " + guesses;
-        attempts=10;
-        
-        }
+         }
 
- // when guesses =0 then game over 
-        if (guesses<0) {
-        alert("Sorry. You are out of guesses");
-        losses++;
-        resetGame();
-        }
+//on html
+        var winsText = document.getElementById("winsContent"); 
+        winsText.innerHTML = "Wins: " + win;
+        var  guessSoFarText =document.getElementById("guessSoFarContent");
+        guessSoFarText.innerHTML = "Your Guessed Letter(s): " + userGuess;
+        var lossText=document.getElementById("lossContent");
+        lossText.innerHTML = "Losses: " + losses;
+        var guessLeftText=document.getElementById("guessLeftContent")
+        guessLeftText.innerHTML= "Guesses Left: " + guesses;
 
-
-//repeated letters *wll have reference back to array of listed letters? 
-        /*if (letterGuess !== computerGuess && letterGuess === letterGuess) {
-        alert("already guessed");
-        }*/
-
-//this is for letters to be listed 
-        userGuess.push(letterGuess);
-        document.getElementById("guessSoFar-content").innerHTML = "Your Guessed Letter(s): "+ userGuess;
-        
-        
+};
 
 
-//functions
-        function gameStarts(){
-                document.getElementById("wins-content").innerHTML = "Wins:";
-                document.getElementById("guessSoFar-content").innerHTML = "Your Guessed Letter(s): ";
-        }
-        function resetGame() {
-                 document.getElementById("wins-content").innerHTML = "Wins:" + win;
-                 document.getElementById("loss-content").innerHTML = "Losses: " + losses;
-                 document.getElementById("guessSoFar-content").innerHTML = "Your Guessed Letter(s):" ;
-                 document.getElementById("guessLeft-content").innerHTML= "Guesses Left: " + 10;
-                 
-                
-        }
-
-
-    //};
-}
+    
