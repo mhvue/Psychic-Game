@@ -15,6 +15,10 @@ p {
     font-weight: bold;
     font-size: 25px;
 }
+ 
+#smallerText {
+    font-size: 20px;
+}
 
 img {
     margin: 0 auto;
