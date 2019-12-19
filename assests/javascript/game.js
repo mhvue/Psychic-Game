@@ -31,9 +31,6 @@ var newGame= function () {
 
 }
 
-
-
-
 //calling  computer guess
 generateGuess();
 

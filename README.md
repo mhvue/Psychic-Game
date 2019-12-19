@@ -1,5 +1,5 @@
 # Psychic-Game
-Computer will pick a random leter. User to guess the letter the Computer guessed.
+Computer will pick a random letter. User to guess the letter the Computer guessed.
 
 To start, just press a key! 
 
