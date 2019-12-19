@@ -17,7 +17,7 @@ var computerGuess = "";
 
  var generateGuess = function() {
         computerGuess= alphabet[Math.floor(Math.random() * alphabet.length)];
-        console.log(computerGuess);
+        //console.log(computerGuess);
 
  }
 
@@ -38,7 +38,7 @@ generateGuess();
 document.onkeydown= function(event) {
     //var letterGuess= String.fromCharCode(event.keyCode).toLowerCase(); //obtained String.fromCharcode on code.io/alibar/pen/MvPgbx
     var letterGuess = event.key;
-    console.log(letterGuess);
+    //console.log(letterGuess);
 
     userGuess.push(letterGuess);
 
