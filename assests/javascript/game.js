@@ -31,6 +31,7 @@ var newGame= function () {
 
 }
 
+
 //calling  computer guess
 generateGuess();
 
@@ -65,6 +66,11 @@ document.onkeydown= function(event) {
          }
 
 //on html
+        showScoreBoard();
+
+};
+
+function showScoreBoard () {
         var winsText = document.getElementById("winsContent"); 
         winsText.innerHTML = "Wins: " + win;
         var  guessSoFarText =document.getElementById("guessSoFarContent");
@@ -73,8 +79,10 @@ document.onkeydown= function(event) {
         lossText.innerHTML = "Losses: " + losses;
         var guessLeftText=document.getElementById("guessLeftContent")
         guessLeftText.innerHTML= "Guesses Left: " + guesses;
-
-};
-
-
+}
     
+showScoreBoard ();
+
+
+
+
